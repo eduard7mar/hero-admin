@@ -8,14 +8,16 @@
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
     "bootstrap": "^5.3.2",
+    "classnames": "^2.3.2",
     "concurrently": "^8.2.2",
+    "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.3",
     "react-scripts": "5.0.1",
     "sass": "^1.69.5",
-    "classnames": "^2.3.2",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "yup": "^1.3.2"
   },
   "scripts": {
     "start": "concurrently \"react-scripts --openssl-legacy-provider start\" \"npx json-server heroes.json --port 3001\"",

@@ -11,6 +11,30 @@
       "name": "Морской герой",
       "description": "Как аквамен, но не из DC",
       "element": "water"
+    },
+    {
+      "id": "8fcd874d-f87e-43c7-b4f6-f1c2196496cb",
+      "name": "Аанг",
+      "description": "Многое",
+      "element": "fire"
+    },
+    {
+      "id": "c3863502-136b-4e7e-a423-ddd51ba7683c",
+      "name": "Эдуард",
+      "description": "Все",
+      "element": "water"
+    },
+    {
+      "id": "ac418998-90f0-4841-adf1-efc427431804",
+      "name": "Георгий",
+      "description": "Победоносец",
+      "element": "earth"
+    },
+    {
+      "id": "f9b8ef65-58f3-4c72-b4b4-8b65407c8969",
+      "name": "Эдуард",
+      "description": "ghghg",
+      "element": "fire"
     }
   ],
   "filters": [
