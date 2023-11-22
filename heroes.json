@@ -19,16 +19,16 @@
       "element": "fire"
     },
     {
-      "id": "c3863502-136b-4e7e-a423-ddd51ba7683c",
+      "id": "bd4cb98a-d0b5-41c8-bb85-0e07a6543c23",
       "name": "Эдуард",
-      "description": "Все",
-      "element": "water"
+      "description": "joj",
+      "element": "wind"
     },
     {
-      "id": "049d526b-7488-43ce-843a-ab7cb3cd2cfb",
-      "name": "Argishti",
-      "description": "l;l;l",
-      "element": "water"
+      "id": "b666a25d-768c-49fb-860b-78e3bd4cb5b9",
+      "name": "Аватар",
+      "description": "Все стихии",
+      "element": "earth"
     }
   ],
   "filters": [

@@ -10,7 +10,7 @@ import { heroCreated } from '../../actions';
 import "./heroesAddForm.scss";
 
 const HeroesAddForm = () => {
-    const {filters, filtersLoadingStatus} = useSelector(state => state);
+    const {filters, filtersLoadingStatus} = useSelector(state => state.filters);
     const [error, setError] = useState(false);
     const dispatch = useDispatch();
     const { request } = useHttp();
