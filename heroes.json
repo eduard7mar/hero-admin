@@ -25,23 +25,37 @@
       "element": "water"
     },
     {
-      "id": "ac418998-90f0-4841-adf1-efc427431804",
-      "name": "Георгий",
-      "description": "Победоносец",
-      "element": "earth"
-    },
-    {
-      "id": "f9b8ef65-58f3-4c72-b4b4-8b65407c8969",
-      "name": "Эдуард",
-      "description": "ghghg",
-      "element": "fire"
+      "id": "049d526b-7488-43ce-843a-ab7cb3cd2cfb",
+      "name": "Argishti",
+      "description": "l;l;l",
+      "element": "water"
     }
   ],
   "filters": [
-    "all",
-    "fire",
-    "water",
-    "wind",
-    "earth"
+    {
+      "name": "all",
+      "label": "All",
+      "className": "btn-outline-dark"
+    },
+    {
+      "name": "fire",
+      "label": "Fire",
+      "className": "btn-danger"
+    },
+    {
+      "name": "water",
+      "label": "Water",
+      "className": "btn-primary"
+    },
+    {
+      "name": "wind",
+      "label": "Air",
+      "className": "btn-success"
+    },
+    {
+      "name": "earth",
+      "label": "Earth",
+      "className": "btn-secondary"
+    }
   ]
 }

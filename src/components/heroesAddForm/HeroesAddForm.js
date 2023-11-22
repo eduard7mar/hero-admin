@@ -1,6 +1,6 @@
 import { useHttp } from '../../hooks/http.hook';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 import {Formik, Form, Field, ErrorMessage as FormikErrorMessage} from "formik";
@@ -9,17 +9,8 @@ import * as Yup from "yup";
 import { heroCreated } from '../../actions';
 import "./heroesAddForm.scss";
 
-// Задача для этого компонента:
-// Реализовать создание нового героя с введенными данными. Он должен попадать
-// в общее состояние и отображаться в списке + фильтроваться
-// Уникальный идентификатор персонажа можно сгенерировать через uiid
-// Усложненная задача:
-// Персонаж создается и в файле json при помощи метода POST
-// Дополнительно:
-// Элементы <option></option> желательно сформировать на базе
-// данных из фильтров
-
 const HeroesAddForm = () => {
+    const {filters, filtersLoadingStatus} = useSelector(state => state);
     const [error, setError] = useState(false);
     const dispatch = useDispatch();
     const { request } = useHttp();
@@ -35,13 +26,30 @@ const HeroesAddForm = () => {
 
         request("http://localhost:3001/heroes", "POST", JSON.stringify(newHero))
             .then(dispatch(heroCreated(newHero)))
-            .catch(error => {console.log("Ошибка при добавлении героя", error)
+            .catch(error => {console.log("Error when adding a hero", error)
             setError(true);
         });
     }
 
-    const View = error ? <div className='alert alert-danger mt-2'>{"Ошибка при добавлении героя. Пожалуйста, попробуйте познее."}</div>
-        : <button type="submit" className="btn btn-primary">Создать</button>
+    const renderFilters = (filters, status) => {
+        if (status === "loading") {
+            return <option>Loading elements</option>
+        } else if (status === "error") {
+            return <option>Loading error</option>
+        }
+        
+        if (filters && filters.length > 0 ) {
+            return filters.map(({name, label}) => {
+                // eslint-disable-next-line
+                if (name === 'all')  return;
+
+                return <option key={name} value={name}>{label}</option>
+            })
+        }
+    }
+
+    const View = error ? <div className='alert alert-danger mt-2'>{"Error adding a hero. Please try again later."}</div>
+        : <button type="submit" className="btn btn-primary">Create</button>
 
     return (
         <Formik
@@ -64,42 +72,39 @@ const HeroesAddForm = () => {
         >
         <Form className="border p-4 shadow-lg rounded">
             <div className="mb-3">
-                <label htmlFor="name" className="form-label fs-4">Имя нового героя</label>
+                <label htmlFor="name" className="form-label fs-4">Name of the new hero</label>
                 <Field 
                     type="text" 
                     name="name" 
                     className="form-control" 
                     id="name" 
-                    placeholder="Как меня зовут?"
+                    placeholder="What's my name?"
                     />
                 <FormikErrorMessage className="error" name="name" component="div" />
             </div>
             <div className="mb-3">
-             <label htmlFor="text" className="form-label fs-4">Описание</label>
+             <label htmlFor="text" className="form-label fs-4">Description</label>
                 <Field
                     type="text"
                     name="description" 
                     as="textarea"
                     className="form-control" 
                     id="description" 
-                    placeholder="Что я умею?"
+                    placeholder="What can I do?"
                     style={{"height": '130px'}}
                 />
                 <FormikErrorMessage className="error" name="description" component="div" />
             </div>
             <div className="mb-3">
-                 <label htmlFor="element" className="form-label">Выбрать элемент героя</label>
+                 <label htmlFor="element" className="form-label">Choose the hero's element</label>
                  <Field 
                     className="form-select" 
                     id="element" 
                     name="element"
                     as="select"
                     >
-                    <option >Я владею элементом...</option>
-                    <option value="fire">Огонь</option>
-                    <option value="water">Вода</option>
-                    <option value="wind">Ветер</option>
-                    <option value="earth">Земля</option>
+                    <option >I master the element...</option>
+                    {renderFilters(filters, filtersLoadingStatus)}
                 </Field>
                 <FormikErrorMessage className="error" name="element" component="div" />
             </div>
