@@ -13,40 +13,45 @@
       "element": "water"
     },
     {
-      "id": "8fcd874d-f87e-43c7-b4f6-f1c2196496cb",
-      "name": "Аанг",
-      "description": "Многое",
+      "id": "913017a8-9ed9-4924-8084-24507663c528",
+      "name": "Эдуард",
+      "description": "Огонь",
       "element": "fire"
     },
     {
-      "id": "b666a25d-768c-49fb-860b-78e3bd4cb5b9",
-      "name": "Аватар",
-      "description": "Все стихии",
-      "element": "earth"
+      "id": "fbd50275-49d9-48ec-9b43-19188230a1fb",
+      "name": "Эдуард",
+      "description": "fgfgf",
+      "element": "wind"
     }
   ],
   "filters": [
     {
+      "id": "all",
       "name": "all",
       "label": "All",
       "className": "btn-outline-dark"
     },
     {
+      "id": "fire",
       "name": "fire",
       "label": "Fire",
       "className": "btn-danger"
     },
     {
+      "id": "water",
       "name": "water",
       "label": "Water",
       "className": "btn-primary"
     },
     {
+      "id": "wind",
       "name": "wind",
       "label": "Air",
       "className": "btn-success"
     },
     {
+      "id": "earth",
       "name": "earth",
       "label": "Earth",
       "className": "btn-secondary"
