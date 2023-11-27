@@ -1,6 +1,6 @@
-import { useHttp } from "../../hooks/http.hook";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useHttp } from "../../hooks/http.hook";
+// import { useState } from "react";
+import { useSelector } from "react-redux"; // deleted useDispatch
 import { v4 as uuidv4 } from "uuid";
 
 
@@ -9,15 +9,19 @@ import * as Yup from "yup";
 
 import store from "../../store";
 import { selectAll } from "../heroesFilters/filtersSlice";
-import { heroCreated } from "../heroesList/heroesSlice";
+// import { heroCreated } from "../heroesList/heroesSlice";
+import { useCreateHeroMutation } from "../../api/apiSlice";
+
 import "./heroesAddForm.scss";
 
 const HeroesAddForm = () => {
+  const [createHero, {isLoading, isError}] = useCreateHeroMutation();
+
   const { filtersLoadingStatus } = useSelector((state) => state.filters);
   const filters = selectAll(store.getState());
-  const [error, setError] = useState(false);
-  const dispatch = useDispatch();
-  const { request } = useHttp();
+  // const [error, setError] = useState(false);
+  // const dispatch = useDispatch();
+  // const { request } = useHttp();
 
   const onSubmitHandler = (values) => {
     const newHero = {
@@ -27,18 +31,19 @@ const HeroesAddForm = () => {
       element: values.element,
     };
 
-    request("http://localhost:3001/heroes", "POST", JSON.stringify(newHero))
-      .then(dispatch(heroCreated(newHero)))
-      .catch((error) => {
-        console.log("Error when adding a hero", error);
-        setError(true);
-      });
+    // request("http://localhost:3001/heroes", "POST", JSON.stringify(newHero))
+    //   .then(dispatch(heroCreated(newHero)))
+    //   .catch((error) => {
+    //     console.log("Error when adding a hero", error);
+    //     setError(true);
+    //   });
+    createHero(newHero).unwrap();
   };
 
   const renderFilters = (filters, status) => {
-    if (status === "loading") {
+    if (isLoading) {
       return <option>Loading elements</option>;
-    } else if (status === "error") {
+    } else if (isError) {
       return <option>Loading error</option>;
     }
 
@@ -56,7 +61,7 @@ const HeroesAddForm = () => {
     }
   };
 
-  const View = error ? (
+  const View = isError ? ( //error replaced by isError
     <div className="alert alert-danger mt-2">
       {"Error adding a hero. Please try again later."}
     </div>
@@ -81,7 +86,7 @@ const HeroesAddForm = () => {
           .required("Required field"),
       })}
       onSubmit={(values, { resetForm }) => {
-        if (!error) {
+        if (!isError) { //error replaced by isError
           onSubmitHandler(values);
           resetForm();
         }

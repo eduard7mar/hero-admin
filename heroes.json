@@ -19,10 +19,16 @@
       "element": "fire"
     },
     {
-      "id": "fbd50275-49d9-48ec-9b43-19188230a1fb",
-      "name": "Эдуард",
-      "description": "fgfgf",
-      "element": "wind"
+      "id": "0639785b-099e-4850-b46d-4e3529a75b08",
+      "name": "Eduard",
+      "description": "hjhj",
+      "element": "earth"
+    },
+    {
+      "id": "ec8891e6-248e-43f3-b5bc-f934209a5e1f",
+      "name": "Эдуард Маргарян",
+      "description": "fgfg",
+      "element": "water"
     }
   ],
   "filters": [
