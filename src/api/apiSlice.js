@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://json-server-flame-omega.vercel.app" }), //replaced http://localhost:3001
   tagTypes: ["Heroes"],
   endpoints: (builder) => ({
     getHeroes: builder.query({

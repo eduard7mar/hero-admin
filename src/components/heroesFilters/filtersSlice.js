@@ -12,7 +12,7 @@ export const fetchFilters = createAsyncThunk(
   "filters/fetchFilters",
   async () => {
     const { request } = useHttp();
-    return await request("http://localhost:3001/filters");
+    return await request("https://json-server-flame-omega.vercel.app/filters");//replaced http://localhost:3001/filters
   }
 );
 
