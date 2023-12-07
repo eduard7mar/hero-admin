@@ -13,6 +13,8 @@ The Elemental Heroes Project is a React-based application that allows users to m
 - **React:** The project is built using the React library for building user interfaces.
 
 - **Redux and Redux Toolkit:** State management is handled efficiently using Redux and the Redux Toolkit.
+  
+- **RTK Query:** Provides a simple and efficient way to manage data in the Redux store and work with external resources such as APIs.
 
 - **Formik and Yup:** Formik is employed for form management, while Yup ensures data validation.
 
