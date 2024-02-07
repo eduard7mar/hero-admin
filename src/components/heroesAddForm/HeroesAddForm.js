@@ -3,8 +3,12 @@
 import { useSelector } from "react-redux"; // deleted useDispatch
 import { v4 as uuidv4 } from "uuid";
 
-
-import { Formik, Form, Field, ErrorMessage as FormikErrorMessage } from "formik";
+import {
+  Formik,
+  Form,
+  Field,
+  ErrorMessage as FormikErrorMessage,
+} from "formik";
 import * as Yup from "yup";
 
 import store from "../../store";
@@ -15,7 +19,7 @@ import { useCreateHeroMutation } from "../../api/apiSlice";
 import "./heroesAddForm.scss";
 
 const HeroesAddForm = () => {
-  const [createHero, {isLoading, isError}] = useCreateHeroMutation();
+  const [createHero, { isLoading, isError }] = useCreateHeroMutation();
 
   const { filtersLoadingStatus } = useSelector((state) => state.filters);
   const filters = selectAll(store.getState());
@@ -86,7 +90,8 @@ const HeroesAddForm = () => {
           .required("Required field"),
       })}
       onSubmit={(values, { resetForm }) => {
-        if (!isError) { //error replaced by isError
+        if (!isError) {
+          //error replaced by isError
           onSubmitHandler(values);
           resetForm();
         }

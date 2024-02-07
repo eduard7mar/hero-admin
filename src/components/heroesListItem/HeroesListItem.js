@@ -23,7 +23,7 @@ const HeroesListItem = ({name, description, element, onDelete}) => {
     return (
         <li 
             className={`card flex-row mb-4 shadow-lg text-white ${elementClassName}`}>
-            <img src="http://www.stpaulsteinbach.org/wp-content/uploads/2014/09/unknown-hero.jpg" 
+            <img src="https://images.squarespace-cdn.com/content/v1/5cb10202e666694a738b4953/1626287673547-MBVF5CTJNJACGTXTJA97/Article-TheHeroofYourStory-featured.jpg"
                  className="img-fluid w-25 d-inline" 
                  alt="unknown hero" 
                  style={{'objectFit': 'cover'}}/>
